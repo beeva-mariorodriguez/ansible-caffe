@@ -1,0 +1,21 @@
+galaxy_info:
+  author: Mario Rodríguez
+  description: install caffe
+  company: Beeva
+  license: BSD
+  min_ansible_version: 2.1
+  platforms:
+  #- name: Amazon TODO
+  #  versions:
+  #  - all
+  #  - 2013.03
+  #  - 2013.09
+  #  - 2016.03
+  #  - 2016.09
+  - name: Ubuntu
+    versions:
+    - xenial
+  galaxy_tags: []
+
+dependencies: []
+

@@ -1,0 +1,7 @@
+---
+enable_cuda: true
+blas: "ATLAS"
+version: "1.0"
+install_prefix: "/usr/local" 
+delete_sources: False
+

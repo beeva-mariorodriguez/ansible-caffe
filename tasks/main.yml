@@ -1,0 +1,16 @@
+---
+- name: check if caffe is already installed in install_prefix
+  stat:
+    path: "{{ install_prefix }}/bin/caffe"
+  register: st
+
+- name: set caffe_installed fact
+  set_fact:
+    caffe_installed: "{{ st.stat.isreg is defined and st.stat.isreg }}"
+
+- block:
+  - include: "{{ ansible_distribution | lower }}.yml"
+  - include: "compile.yml"
+  - include: "install.yml"
+  when: reinstall or not caffe_installed
+

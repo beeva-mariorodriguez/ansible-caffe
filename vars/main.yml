@@ -1,0 +1,19 @@
+---
+dependencies:
+  - libprotobuf-dev
+  - libleveldb-dev
+  - libsnappy-dev
+  - libhdf5-serial-dev
+  - protobuf-compiler
+  - libboost-all-dev
+  - libgflags-dev
+  - libgoogle-glog-dev
+  - liblmdb-dev 
+  - git
+  - build-essential
+  - python-skimage
+  - python-virtualenv
+
+src_dir: "{{ ansible_env.HOME }}/src/caffe"
+repo_url: "https://github.com/BVLC/caffe"
+

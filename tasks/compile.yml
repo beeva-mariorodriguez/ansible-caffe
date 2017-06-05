@@ -1,0 +1,28 @@
+---
+- name: "mkdir caffe src dir"
+  file:
+    path: "{{ src_dir }}"
+    state: "directory"
+
+- name: "clone caffe repo"
+  git:
+    repo: "{{ repo_url }}"
+    dest: "{{ src_dir }}"
+    version: "{{ version }}"
+
+- name: "mkdir build"
+  file:
+    path: "{{ src_dir }}/build"
+    state: "directory"
+
+- name: "cmake"
+  command: "cmake .. -Wno-dev -DCMAKE_INSTALL_PREFIX={{ install_prefix }}"
+  args:
+    chdir: "{{ src_dir }}/build"
+    creates: "{{ src_dir }}/build/Makefile"
+
+- name: "make"
+  make:
+    chdir: "{{ src_dir }}/build"
+    target: "all"
+

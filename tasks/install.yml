@@ -1,0 +1,12 @@
+---
+- name: "make install"
+  make:
+    chdir: "{{ src_dir }}/build"
+    target: "install"
+  become: true
+
+- name: "delete sources"
+  file:
+    path: "{{ src_dir }}"
+    state: "absent"
+  when: delete_sources
