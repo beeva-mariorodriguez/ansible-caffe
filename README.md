@@ -6,16 +6,18 @@ caffe
 Requirements
 ------------
 
-opencv >= 3.1.0 & opencv-contrib >= 3.1.0, both installed using role beeva-mariorodriguez/ansible-opencv
+* opencv >= 3.1.0 & opencv-contrib >= 3.1.0, both installed using role beeva-mariorodriguez/ansible-opencv
+* CUDNN 7.5
 
 Role Variables
 --------------
 
-* ``enable_cuda``: require NVIDIA CUDA drivers, default: false (CPU-only installation)
 * ``blas``: install ATLAS or OpenBLAS, default: "ATLAS"
 * ``caffe_version``: default: "1.0"
 * ``reinstall``: overwrite current installation (default: False)
 * ``delete_sources``: delete sources after installation (default: False)
+* ``enable_cudnn``: compile caffe with CUDNN support, requires installation of CUDNN from Nvidia developer portal (default: false)
+
 
 Dependencies
 ------------

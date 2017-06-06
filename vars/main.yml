@@ -1,4 +1,7 @@
 ---
+cuda_dependencies:
+  - nvidia-cuda-dev
+  - nvidia-cuda-toolkit
 dependencies:
   - libprotobuf-dev
   - libleveldb-dev
@@ -14,6 +17,6 @@ dependencies:
   - python-skimage
   - python-virtualenv
 
-src_dir: "{{ ansible_env.HOME }}/src/caffe"
+src_dir: "{{ ansible_env.HOME }}/caffe"
 repo_url: "https://github.com/BVLC/caffe"
 
