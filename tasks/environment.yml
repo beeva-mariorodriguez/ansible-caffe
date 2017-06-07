@@ -1,0 +1,10 @@
+---
+- name: update ~ubuntu/.bashrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    marker: "# {mark} caffe environment"
+    content: |
+      export CAFFE_ROOT={{ src_dir }}
+      export PYTHONPATH=${CAFFE_ROOT}/python
+      export PATH=${PATH}:${CAFFE_ROOT}/.build_release/tools
+
