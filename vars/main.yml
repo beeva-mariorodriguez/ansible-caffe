@@ -8,6 +8,7 @@ dependencies:
   - libsnappy-dev
   - libhdf5-serial-dev
   - python-h5py
+  - python-protobuf
   - protobuf-compiler
   - libboost-all-dev
   - libgflags-dev

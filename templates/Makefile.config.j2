@@ -2,7 +2,7 @@
 USE_CUDNN := 1
 {% endif %}
 OPENCV_VERSION := 3
-CUDA_DIR := /usr
+CUDA_DIR := /usr/local/cuda
 
 CUDA_ARCH := -gencode arch=compute_20,code=sm_20 \
 		-gencode arch=compute_20,code=sm_21 \

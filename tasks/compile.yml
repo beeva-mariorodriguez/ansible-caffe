@@ -9,11 +9,12 @@
     repo: "{{ repo_url }}"
     dest: "{{ src_dir }}"
     version: "{{ version }}"
+    force: "yes"
 
 - name: "generate Makefile.config"
   template:
-    src: "Makefile.config"
-    dest: "{{ src_dir }}"
+    src: "Makefile.config.j2"
+    dest: "{{ src_dir }}/Makefile.config"
 
 # https://gist.github.com/wangruohui/679b05fcd1466bb0937f#fix-hdf5-naming-problem
 - name: "upload Makefile"
@@ -23,8 +24,14 @@
 
 - name: "make"
   make:
-    chdir: "{{ src_dir }}/build"
-    target: "all"
+    chdir: "{{ src_dir }}"
+    params:
+      NUM_THREADS: "{{ ansible_processor_vcpus }}"
+
+- name: "make"
+  make:
+    chdir: "{{ src_dir }}"
+    target: "pycaffe"
     params:
       NUM_THREADS: "{{ ansible_processor_vcpus }}"
 
