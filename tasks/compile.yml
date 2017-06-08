@@ -23,15 +23,12 @@
     dest: "{{ src_dir }}"
 
 - name: "make"
-  make:
-    chdir: "{{ src_dir }}"
-    params:
-      NUM_THREADS: "{{ ansible_processor_vcpus }}"
+  shell: "make -j {{ ansible_processor_vcpus }}"
+  args:
+    chdir: "{{ src_dir }}/build"
 
 - name: "make"
-  make:
-    chdir: "{{ src_dir }}"
-    target: "pycaffe"
-    params:
-      NUM_THREADS: "{{ ansible_processor_vcpus }}"
+  shell: "make pycaffe -j {{ ansible_processor_vcpus }}"
+  args:
+    chdir: "{{ src_dir }}/build"
 
