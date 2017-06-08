@@ -23,12 +23,12 @@
     dest: "{{ src_dir }}"
 
 - name: "make"
-  shell: "make -j {{ ansible_processor_vcpus }}"
+  shell: "make -j {{ ansible_processor_vcpus * 2}}"
   args:
-    chdir: "{{ src_dir }}/build"
+    chdir: "{{ src_dir }}"
 
 - name: "make"
-  shell: "make pycaffe -j {{ ansible_processor_vcpus }}"
+  shell: "make pycaffe -j {{ ansible_processor_vcpus * 2 }}"
   args:
-    chdir: "{{ src_dir }}/build"
+    chdir: "{{ src_dir }}"
 
